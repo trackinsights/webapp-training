@@ -48,14 +48,18 @@ pip install flask
 
 ## Step 1: Build the Game Logic
 
-1. Create a 3x3 board:
+1. In 'app.py', create a 3x3 board:
 
 ```python
 board = [[" " for _ in range(3)] for _ in range(3)]
 ```
 
-2. Write functions to:
-   - Print the board  
+2. Add the below functions:
+   - Print the board
+```python
+def print_board():
+    # your code here
+```
    - Place a move (`X` or `O`)  
    - Check for a win  
    - Check for a draw  
