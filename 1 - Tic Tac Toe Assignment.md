@@ -51,22 +51,30 @@ pip install flask
 1. In 'app.py', create a 3x3 board:
 
 ```python
-board = [[" " for _ in range(3)] for _ in range(3)]
+board = [["-" for _ in range(3)] for _ in range(3)]
 ```
 
-2. Add the below functions:
+2. Add a print function:
    - Print the board
 ```python
 def print_board():
-    # your code here
+    for row in board:
+        print("|".join(row))
+    print()
 ```
+3. You can test this function by calling it.
+
+  ```python
+print_board():
+```
+5. Add these functions:
    - Place a move (`X` or `O`)  
    - Check for a win  
    - Check for a draw  
 
-3. Test your game in the console.
+6. Test your game in the console.
 
-> **Tip:** Test each function separately before moving on.
+> **Tip:** Test each function separately before moving on. 
 
 ---
 
