@@ -1,4 +1,4 @@
-# Assignment 2: Interactive Web-Based Tic-Tac-Toe
+# Assignment 1: Interactive Web-Based Tic-Tac-Toe
 
 ## Overview
 Now that your game logic and Flask app are set up, you’ll:  
@@ -114,15 +114,6 @@ def reset():
     current_player = "X"
     return redirect(url_for("home"))
 ```
-
----
-
-## Optional Extensions
-- Track scores across games  
-- Prevent moves after the game ends  
-- Add an AI opponent  
-
----
 
 ## Submission (Part 2)
 1. Push all updates to GitHub (`app.py`, `templates/`).  
