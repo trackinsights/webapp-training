@@ -156,7 +156,7 @@ tic-tac-toe-flask/
 python app.py
 ```
 
-4. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a browser. You should now see a 3x3 grid showing your board.
+4. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a browser. You should now see a small 3x3 grid showing your board. We will apply styling in the next part to get the board looking better!
 
 ---
 
