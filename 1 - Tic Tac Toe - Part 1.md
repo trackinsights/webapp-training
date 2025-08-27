@@ -72,23 +72,13 @@ In `app.py`:
 
    ```python
    def place_move(player, row, col):
-       if board[row][col] == " ":
-           board[row][col] = player
-           return True
-       return False
+       # If the cell is NOT empty, return False. Otherwise, move the player there and return True. 
 
    def check_win(player):
-       # Check rows and columns
-       for i in range(3):
-           if all(board[i][j] == player for j in range(3)) or               all(board[j][i] == player for j in range(3)):
-               return True
-       # Check diagonals
-       if all(board[i][i] == player for i in range(3)) or           all(board[i][2 - i] == player for i in range(3)):
-           return True
-       return False
+       # Check rows, columns, columns. Return True if player wins, or False otherwise
 
    def check_draw():
-       return all(cell != " " for row in board for cell in row)
+       # Return True if draw, or False otherwise
    ```
 
 5. Test your functions in the terminal:  
@@ -96,6 +86,7 @@ In `app.py`:
    ```python
    place_move("X", 0, 0)
    print_board()
+
    # Expected:
    # X| | 
    #  | | 
