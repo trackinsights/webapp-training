@@ -65,14 +65,28 @@ In `app.py`:
 4. Add these functions (and test them one by one in the terminal):  
 
    ```python
-   def place_move(player, row, col):
-       # If the cell is NOT empty, return False. Otherwise, move the player there and return True. 
+def place_move(player, row, col):
+    # If the cell is NOT empty, return False. Otherwise, move the player there and return True.
+    if board[row][col] != " ":
+        return False
+    board[row][col] = player
+    return True
 
-   def check_win(player):
-       # Check rows, columns, columns. Return True if player wins, or False otherwise
+def check_win(player):
+    # Check rows, columns, and diagonals. Return True if player wins, or False otherwise.
+    for row in board:
+        if all(cell == player for cell in row):
+            return True
+    for col in range(3):
+        if all(board[row][col] == player for row in range(3)):
+            return True
+    if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
+        return True
+    return False
 
-   def check_draw():
-       # Return True if draw, or False otherwise
+def check_draw():
+    # Return True if draw, or False otherwise
+    return all(cell != " " for row in board for cell in row)
    ```
 
 5. Test your functions in the terminal:  
