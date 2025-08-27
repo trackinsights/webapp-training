@@ -30,11 +30,18 @@ source venv/bin/activate
 ```
 
 4. Install Flask:  
+
 ```bash
 pip install flask
 ```
 
 5. Create a Python file: `app.py`.  
+6. (Optional) Add a `.gitignore` file to ignore your virtual environment:  
+
+```
+venv/
+__pycache__/
+```
 
 ---
 
@@ -70,7 +77,7 @@ def check_win(player):
         if all(board[row][col] == player for row in range(3)):
             return True
     # Diagonals
-    if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
+    if all(board[i][i] == player for i in range(3)) or        all(board[i][2 - i] == player for i in range(3)):
         return True
     return False
 
@@ -92,7 +99,7 @@ print(check_draw())     # False
 
 ## Step 2: Add Flask Basics
 
-Add this Flask code below your game logic:
+Add Flask code below your game logic:
 
 ```python
 from flask import Flask, render_template
@@ -101,24 +108,26 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Display the board in a simple HTML template
+    # Display the board in an HTML template
     return render_template("index.html", board=board)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 ```
-
-Now, when you run:
-
-```bash
-python app.py
-```
-
-Visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) → you should see your HTML page.
 
 ---
 
-## Step 3: Create an HTML Template
+## Step 3: Create the Template
 
-1. Create a folder called `templates`.  
-2. Inside, make a file `index.html`:
+1. Create a folder called `templates` **next to `app.py`**:
+
+```
+tic-tac-toe-flask/
+├─ app.py
+├─ templates/
+```
+
+2. Inside `templates/`, create a file called `index.html`:
 
 ```html
 <!DOCTYPE html>
@@ -141,7 +150,13 @@ Visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) → you should see your H
 </html>
 ```
 
-3. Refresh your browser — the board should display as a 3x3 grid.
+3. Run your Flask app:
+
+```bash
+python app.py
+```
+
+4. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in a browser. You should now see a 3x3 grid showing your board.
 
 ---
 
@@ -151,4 +166,4 @@ Visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) → you should see your H
 2. Make sure `python app.py` runs locally.  
 3. Submit your repository link.
 
-**Goal:** A working Flask app that displays your Tic-Tac-Toe board **while keeping your Python functions intact**.  
+**Goal:** A working Flask app that displays your Tic-Tac-Toe board **while keeping your Python functions intact**.
