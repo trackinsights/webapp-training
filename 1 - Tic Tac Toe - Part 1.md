@@ -10,7 +10,7 @@ This builds your foundation before adding styling and advanced features in Assig
 
 ---
 
-## Step 0: Project Setup
+## Project Setup
 
 1. Create a folder for your project, e.g., `tic-tac-toe-flask`.  
 2. Create a Python virtual environment:  
@@ -31,15 +31,9 @@ This builds your foundation before adding styling and advanced features in Assig
    pip install flask
    ```
 5. Create a Python file: `app.py`.  
-6. (Optional) Add a `.gitignore` file to your project to keep Git clean:  
-   ```
-   venv/
-   __pycache__/
-   ```
-
 ---
 
-## Step 1: Build the Game Logic
+## Build the Game Logic
 
 In `app.py`:
 
@@ -100,7 +94,7 @@ In `app.py`:
 
 ---
 
-## Step 2: Create a Basic Flask App
+## Create a Basic Flask App
 
 Replace your file contents with:
 
@@ -126,7 +120,7 @@ Visit: [http://127.0.0.1:5000/](http://127.0.0.1:5000/) → you should see **Hel
 
 ---
 
-## Step 3: Add an HTML Template
+## Add an HTML Template
 
 1. Create a folder called `templates`.  
 2. Inside, make a file `index.html`:
@@ -162,7 +156,7 @@ def home():
 
 ---
 
-## Step 4: Display the Board
+## Display the Board
 
 Update `index.html`:
 
