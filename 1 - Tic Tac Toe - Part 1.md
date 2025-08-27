@@ -77,7 +77,7 @@ def check_win(player):
         if all(board[row][col] == player for row in range(3)):
             return True
     # Diagonals
-    if all(board[i][i] == player for i in range(3)) or        all(board[i][2 - i] == player for i in range(3)):
+    if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
         return True
     return False
 
