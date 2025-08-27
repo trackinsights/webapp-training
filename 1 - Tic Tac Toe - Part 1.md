@@ -68,6 +68,7 @@ In `app.py`:
    def place_move(player, row, col):
       if board[row][col] != " ":
          return False
+
       board[row][col] = player
       return True
 
@@ -83,7 +84,7 @@ In `app.py`:
       if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
          return True
 
-   return False
+      return False
 
    def check_draw():
       return all(cell != " " for row in board for cell in row)
