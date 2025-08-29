@@ -119,7 +119,7 @@ python app.py
 3. Add a message that shows the winner or draw when the game ends.
 4. Add a reset button that resets the game.  
 
-## 📌 Submission (Part 2)  
+## Submission (Part 2)  
 
 1. Push your updated project to GitHub (`app.py`, `templates/index.html`).  
 2. Submit your **GitHub repo link**.  
