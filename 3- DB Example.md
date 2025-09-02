@@ -1,4 +1,4 @@
-# Assignment 3: DB Connectivity  
+# Assignment 3: DB Example
 
 ---
 
@@ -16,9 +16,7 @@ flask_bootstrap_db_demo/
     └── index.html
 ```
 
-The code for app.py and index.html is listed below. 
-
-[Download Track.db](https://raw.githubusercontent.com/trackinsights/webapp-training/main/Track.db)
+The code for app.py and index.html is listed below. Here is where you can download Track.db: [Download Track.db](https://raw.githubusercontent.com/trackinsights/webapp-training/main/Track.db)
 
 
 ## `app.py`
@@ -30,12 +28,15 @@ import sqlite3
 app = Flask(__name__)
 
 def get_data():
-    conn = sqlite3.connect("Track.db")
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute("SELECT school_name, school_type FROM school")
-    rows = cur.fetchall()
-    conn.close()
+    rows = []
+    try:
+        with sqlite3.connect("Track.db") as conn:
+            conn.row_factory = sqlite3.Row
+            cur = conn.cursor()
+            cur.execute("SELECT school_name, school_type FROM school")
+            rows = cur.fetchall()
+    except sqlite3.Error as e:
+        print("Database error:", e)
     return rows
 
 @app.route("/")
@@ -54,24 +55,24 @@ if __name__ == "__main__":
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flask + Bootstrap + SQLite</title>
+    <title>DB Example</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body class="bg-light">
     <div class="container py-5">
-      <h1 class="mb-4">User List</h1>
+      <h1 class="mb-4">IHSAA School List</h1>
       <table class="table table-striped table-bordered">
         <thead class="table-dark">
           <tr>
             <th>Name</th>
-            <th>Email</th>
+            <th>Type</th>
           </tr>
         </thead>
         <tbody>
           {% for row in data %}
           <tr>
-            <td>{{ row['name'] }}</td>
-            <td>{{ row['email'] }}</td>
+            <td>{{ row['school_name'] }}</td>
+            <td>{{ row['school_type'] }}</td>
           </tr>
           {% endfor %}
         </tbody>
