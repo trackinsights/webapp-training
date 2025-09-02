@@ -18,6 +18,8 @@ flask_bootstrap_db_demo/
 
 The code for app.py and index.html is listed below. 
 
+You can download Track.db from here: https://github.com/trackinsights/webapp-training/blob/main/Track.db
+
 ## `app.py`
 
 ```python
